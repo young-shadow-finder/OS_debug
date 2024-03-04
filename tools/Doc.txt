@@ -1,0 +1,23 @@
+install tools
+source env
+
+Download source code and busybox(fs)
+busybox make menuconfig
+Setting->Build Options select Build busybox as static binary(no share libs)
+
+kernel make menuconfig
+make vexpress_defconfig
+make menuconfig
+General setup--->[set _install]
+    Inital RAN filesystem and RAM disk...
+    (_install) Initranfs source file(s)
+
+Boot Options--->[clean this config]
+    ()Default kernel command string
+
+Kernel Features--->[High memory support]
+    Memory split
+    [*]High Memory Support
+
+#run in kernel folder
+sudo qemu-system-arm -M vexpress-a9 -smp -m 1024M -kernel arch/arm/boot/zImage -append "rdinit=/linuxrc console=ttyAMA0 loglevel=8" -dtb arch/arm/boot/dts/vexpress-v2p-ca9.dtb -nographic
