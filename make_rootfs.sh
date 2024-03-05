@@ -7,6 +7,7 @@ else
   echo "File not exit, clone code will start..."
   git clone https://github.com/mirror/busybox.git
   echo "clone code over..."
+  echo "Compile busybox link static, else copy gcc compile toolchain lib"
   sleep 10
 fi
 

@@ -47,6 +47,6 @@ mkfs.ext4 rootfs.img
 
 sudo mount rootfs.img $rootfs_mount_point
 
-sudo cp -r busybox/_install/ $rootfs_mount_point
+sudo cp -r busybox/_install/* $rootfs_mount_point
 sleep 2
 sudo umount $rootfs_mount_point
