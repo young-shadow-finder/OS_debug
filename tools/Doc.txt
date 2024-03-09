@@ -27,3 +27,9 @@ sudo qemu-system-arm -M vexpress-a9 -smp -m 1024M -kernel arch/arm/boot/zImage -
 qemu-system-aarch64 -m 1024 -cpu max,sve=on,sve256=on -M virt,gic-version=3,its=on,iommu=smmuv3 -nographic -kernel linux/arch/arm64/boot/Image -append "noinitrd nokaslr loglevel=8 sched_debug root=/dev/vda rootfstype=ext4 rw" -drive if=none,file=rootfs.img,id=hd0 -device virtio-blk-device,drive=hd0
 
 qemu-system-aarch64 -m 1024 -cpu max,sve=on,sve256=on -M virt,gic-version=3,its=on,iommu=smmuv3 -nographic -kernel linux/arch/arm64/boot/Image -append "noinitrd nokaslr loglevel=8 root=/dev/vda rootfstype=ext4 rw" -drive if=none,file=rootfs.img,id=hd0 -device virtio-blk-device,drive=hd0
+
+KBUILD_CFLAGS += -O0
+
+#pragma GCC push_options
+#pragma GCC optimize ("O3")
+#pragma GCC pop_options
