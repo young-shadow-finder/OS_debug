@@ -11,12 +11,13 @@ else
   git clone https://github.com/torvalds/linux.git
   echo "clone code over..."
   sleep 5
+  cp tools/yf_defconfig linux/arch/arm64/configs/yf_defconfig
 fi
 
 
 cd $kernel_path
 
-make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- defconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- yf_defconfig
 sleep 1
 make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- -j4
 
