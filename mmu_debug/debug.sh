@@ -1,0 +1,1 @@
+qemu-system-aarch64 -M virt,gic-version=2 -cpu cortex-a53 -m 128M -smp 4 -kernel src/mmu_debug.elf -append "console=ttyAMA0" -nographic -s -S
