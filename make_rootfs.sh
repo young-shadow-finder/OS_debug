@@ -9,7 +9,7 @@ else
   echo "clone code over..."
   echo "Compile busybox link static, else copy gcc compile toolchain lib"
   sleep 5
-  make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- defconfig
+  make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE defconfig
   exit
 fi
 
@@ -20,7 +20,7 @@ echo "Now will start compile busybox"
 
 sleep 1
 # set CROSS_COMPILE
-make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu-
+make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE
 sleep 1
-make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- install
+make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE install
 

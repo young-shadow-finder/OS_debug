@@ -1,5 +1,5 @@
-#make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- menuconfig
-#make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- 【 “Image”、“dtb”和“ modules” 】-j$(cpus)
+#make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE menuconfig
+#make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE 【 “Image”、“dtb”和“ modules” 】-j$(cpus)
 
 kernel_path=linux
 
@@ -11,16 +11,16 @@ else
   git clone https://github.com/torvalds/linux.git
   echo "clone code over..."
   sleep 2
-  cp tools/yf_defconfig linux/arch/arm64/configs/yf_defconfig
+  cp tools/dbg_aarch64_defconfig linux/arch/arm64/configs/yf_defconfig
   sleep 2
   cd $kernel_path
   sleep 2
-  make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- yf_defconfig
+  make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE yf_defconfig
   exit
 fi
 
 cd $kernel_path
 
 sleep 1
-make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- -j4
+make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE -j4
 
