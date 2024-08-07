@@ -54,3 +54,4 @@ linux/
 busybox/
 .vscode/
 rootfs.img
+debug.sh
