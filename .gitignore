@@ -55,3 +55,4 @@ busybox/
 .vscode/
 rootfs.img
 debug.sh
+learn_doc/*
