@@ -33,3 +33,15 @@ KBUILD_CFLAGS += -O0
 #pragma GCC push_options
 #pragma GCC optimize ("O3")
 #pragma GCC pop_options
+
+
+sudo ip tuntap del dev tap0 mode tap
+
+sudo ip tuntap add dev tap0 mode tap
+sudo ip addr add 192.168.66.1/24 dev tap0
+sudo ip link set tap0 up
+x86_x64
+-netdev tap,id=tap0,ifname=tap0,script=no,downscript=no -device e1000,netdev=tap0
+
+echo "ifconfig eth0 192.168.66.66" >> etc/init.d/rcS
+echo "ifconfig eth0 up" >> etc/init.d/rcS
