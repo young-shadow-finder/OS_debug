@@ -11,12 +11,12 @@ else
   git clone https://github.com/torvalds/linux.git
   echo "clone code over..."
   sleep 2
-  cp tools/dbg_aarch64_defconfig linux/arch/arm64/configs/yf_defconfig
-  sleep 2
-  cd $kernel_path
-  sleep 2
-  make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE yf_defconfig
-  exit
+  # cp tools/dbg_aarch64_defconfig linux/arch/arm64/configs/yf_defconfig
+  # sleep 2
+  # cd $kernel_path
+  # sleep 2
+  # make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE yf_defconfig
+  # exit
 fi
 
 cd $kernel_path

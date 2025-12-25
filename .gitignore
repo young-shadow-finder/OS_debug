@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 linux/
+buildroot/
 busybox/
 .vscode/
 rootfs.img
