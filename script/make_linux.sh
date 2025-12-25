@@ -16,7 +16,7 @@ else
   # cd $kernel_path
   # sleep 2
   # make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE yf_defconfig
-  # exit
+  exit
 fi
 
 cd $kernel_path
