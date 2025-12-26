@@ -20,7 +20,13 @@ else
 fi
 
 cd $kernel_path
+echo $OS_DEBUG_ARCH
+echo $OS_DEBUG_CROSS_COMPILE
+
+echo "system cpu number:" $(nproc)
+thread_num=$(( $(nproc) / 2 ))
+echo "compile thread number:" $thread_num
 
 sleep 1
-make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE -j4
+make $OS_DEBUG_ARCH $OS_DEBUG_CROSS_COMPILE -j$thread_num
 
